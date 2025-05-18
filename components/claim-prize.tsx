@@ -86,20 +86,23 @@ export default function ClaimPrize({ winningNumbers, isActive }: ClaimPrizeProps
         <CardDescription>Check if you've won and claim your prizes</CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
-        <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
-          <p className="text-sm text-gray-600 mb-2">Winning Numbers</p>
+        <div className="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg border border-blue-100 dark:border-blue-800/50">
+          <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">Winning Numbers</p>
           <div className="flex flex-wrap gap-2">
             {winningNumbers.length > 0 ? (
-              winningNumbers.map((num, i) => (
-                <div
-                  key={i}
-                  className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-green-500 flex items-center justify-center font-bold text-lg text-white"
-                >
-                  {num}
-                </div>
-              ))
+              // Sort the winning numbers before displaying them
+              [...winningNumbers]
+                .sort((a, b) => a - b)
+                .map((num, i) => (
+                  <div
+                    key={i}
+                    className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-green-500 dark:from-green-500 dark:to-green-600 flex items-center justify-center font-bold text-lg text-white"
+                  >
+                    {num}
+                  </div>
+                ))
             ) : (
-              <p className="text-gray-500">No winning numbers drawn yet</p>
+              <p className="text-gray-500 dark:text-gray-400">No winning numbers drawn yet</p>
             )}
           </div>
         </div>

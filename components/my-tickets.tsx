@@ -78,17 +78,27 @@ export default function MyTickets() {
 
                     <div className="space-y-3">
                       {ticket.numbers.map((row, idx) => (
-                        <div key={idx} className="bg-white rounded-md p-3 border border-gray-200">
-                          <div className="text-xs text-gray-500 mb-2">Row #{idx + 1}</div>
+                        <div
+                          key={idx}
+                          className="bg-white dark:bg-gray-800 rounded-md p-3 border border-gray-200 dark:border-gray-700"
+                        >
+                          <div className="text-xs text-gray-500 dark:text-gray-400 mb-2">Row #{idx + 1}</div>
                           <div className="flex flex-wrap gap-2">
-                            {row.map((num, i) => (
-                              <div
-                                key={i}
-                                className="w-8 h-8 rounded-full bg-gradient-to-br from-amber-400 to-amber-500 flex items-center justify-center font-bold text-sm text-white"
-                              >
-                                {num}
-                              </div>
-                            ))}
+                            {/* Sort the numbers before rendering them */}
+                            {[...row]
+                              .sort((a, b) => a - b)
+                              .map((num, i) => (
+                                <div
+                                  key={i}
+                                  className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${
+                                    ticket.status === "won"
+                                      ? "bg-gradient-to-br from-green-400 to-green-500 text-white"
+                                      : "bg-gradient-to-br from-brand-400 to-brand-600 dark:from-brand-500 dark:to-brand-700 text-white shadow-md"
+                                  }`}
+                                >
+                                  {num}
+                                </div>
+                              ))}
                           </div>
                         </div>
                       ))}

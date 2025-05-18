@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { motion } from "framer-motion"
 
 interface CountdownTimerProps {
   targetDate: number
@@ -36,12 +37,29 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
     return () => clearInterval(interval)
   }, [targetDate])
 
+  const TimeUnit = ({ value, label }: { value: number; label: string }) => (
+    <div className="flex flex-col items-center">
+      <motion.div
+        key={value}
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="bg-brand-100/50 dark:bg-brand-900/30 text-brand-700 dark:text-brand-300 font-mono rounded-md px-2 py-1 min-w-[2.5rem] text-center"
+      >
+        {value.toString().padStart(2, "0")}
+      </motion.div>
+      <span className="text-xs text-gray-500 dark:text-gray-400 mt-1">{label}</span>
+    </div>
+  )
+
   return (
-    <div className="flex gap-2 text-xl font-bold">
-      <span>{timeLeft.days}d</span>
-      <span>{timeLeft.hours}h</span>
-      <span>{timeLeft.minutes}m</span>
-      <span>{timeLeft.seconds}s</span>
+    <div className="flex gap-2 items-end">
+      <TimeUnit value={timeLeft.days} label="days" />
+      <span className="text-gray-400 dark:text-gray-500 mb-1">:</span>
+      <TimeUnit value={timeLeft.hours} label="hours" />
+      <span className="text-gray-400 dark:text-gray-500 mb-1">:</span>
+      <TimeUnit value={timeLeft.minutes} label="min" />
+      <span className="text-gray-400 dark:text-gray-500 mb-1">:</span>
+      <TimeUnit value={timeLeft.seconds} label="sec" />
     </div>
   )
 }

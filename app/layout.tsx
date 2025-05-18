@@ -7,8 +7,8 @@ import { ThemeProvider } from "@/contexts/theme-context"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Lucky Lottery",
-  description: "Decentralized lottery on the blockchain",
+  title: "Lucky Lottery - Blockchain Lottery Platform",
+  description: "A decentralized lottery platform on the blockchain. Buy tickets, win prizes, and convert tokens.",
     generator: 'v0.dev'
 }
 
@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={inter.className}>
+      <body className={`${inter.className} antialiased`}>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
