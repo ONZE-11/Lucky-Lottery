@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%; /* Light Gray */
+    --foreground: 222.2 84% 4.9%; /* Dark Gray */
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 210 40% 98%; /* Light Gray */
+    --primary-foreground: 222.2 47.4% 11.2%; /* Darker Gray */
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    /* Lawyer Website Colors - Light Mode */
+    --lawyer-primary: 215 30% 20%; /* Deep Blue */
+    --lawyer-primary-foreground: 0 0% 100%; /* White */
+    --lawyer-secondary: 210 15% 92%; /* Light Grayish Blue */
+    --lawyer-secondary-foreground: 215 30% 20%; /* Deep Blue */
+    --lawyer-accent: 40 80% 50%; /* Gold */
+    --lawyer-accent-foreground: 0 0% 100%; /* White */
+  }
+
+  .dark {
+    /* New Dark Mode Colors */
+    --background: 220 80% 4.5%; /* from #020817 */
+    --foreground: 210 40% 98%; /* Light Gray */
+
+    --card: 214 75% 6%; /* from #040b1d */
+    --card-foreground: 210 40% 98%;
+
+    --popover: 214 75% 6%; /* from #040b1d */
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 220 70% 9%; /* from #060f26 */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 220 70% 9%; /* from #060f26 */
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 70% 9%; /* from #060f26 */
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 220 70% 9%; /* from #060f26 */
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 70% 9%; /* from #060f26 */
+    --input: 220 70% 9%; /* from #060f26 */
+    --ring: 210 40% 98%;
+
+    /* Lawyer Website Colors - Dark Mode */
+    --lawyer-primary: 215 30% 20%; /* Deep Blue (kept for consistency) */
+    --lawyer-primary-foreground: 0 0% 100%; /* White */
+    --lawyer-secondary: 220 70% 9%; /* from #060f26 */
+    --lawyer-secondary-foreground: 210 40% 98%; /* Light Gray */
+    --lawyer-accent: 220 100% 59%; /* from #3377ff */
+    --lawyer-accent-foreground: 0 0% 100%; /* White */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
